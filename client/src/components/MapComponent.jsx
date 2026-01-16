@@ -33,7 +33,7 @@ const MapComponent = ({ vehicles, routes, selectedRoute }) => {
     return (
         <MapContainer center={hamiltonPosition} zoom={13} className="h-full w-full">
             <ChangeView
-                center={selectedRoute ? JSON.parse(selectedRoute.path)[1] : hamiltonPosition}
+                center={selectedRoute ? (typeof selectedRoute.path === 'string' ? JSON.parse(selectedRoute.path) : selectedRoute.path)[1] : hamiltonPosition}
                 zoom={selectedRoute ? 14 : 13}
             />
 
